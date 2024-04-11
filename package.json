@@ -1,0 +1,35 @@
+{
+  "name": "blog-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/mongoose": "^5.11.97",
+    "body-parser": "^1.20.2",
+    "compose-middleware": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "dotenv-flow": "^4.1.0",
+    "express": "^4.19.2",
+    "http": "^0.0.1-security",
+    "http-status": "^1.7.4",
+    "https": "^1.0.0",
+    "mongoose": "^8.3.1",
+    "morgan": "^1.10.0"
+  }
+}
