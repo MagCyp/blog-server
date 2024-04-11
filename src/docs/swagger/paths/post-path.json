@@ -1,0 +1,148 @@
+{
+  "/posts": {
+    "get": {
+      "tags": ["Posts"],
+      "summary": "Get all posts",
+      "description": "Retrieve all posts from the blog.",
+      "responses": {
+        "200": {
+          "description": "Array of posts retrieved successfully.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/postSchema"
+                }
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    },
+    "post": {
+      "tags": ["Posts"],
+      "summary": "Create a new post",
+      "description": "Create a new post with the provided title and content.",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/postSchema"
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Post created successfully.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postSchema"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request - Title and content are required."
+        }
+      }
+    }
+  },
+  "/posts/{id}": {
+    "get": {
+      "tags": ["Posts"],
+      "summary": "Get a single post by ID",
+      "description": "Retrieve a single post by its unique identifier.",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Unique identifier of the post to retrieve."
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Post retrieved successfully.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postSchema"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Post not found."
+        }
+      }
+    },
+    "patch": {
+      "tags": ["Posts"],
+      "summary": "Update an existing post",
+      "description": "Update an existing post by its unique identifier.",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Unique identifier of the post to update."
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/postSchema"
+            }
+          }
+        }
+      },
+      "responses": {
+        "202": {
+          "description": "Post updated successfully."
+        },
+        "404": {
+          "description": "Post not found."
+        }
+      }
+    },
+    "delete": {
+      "tags": ["Posts"],
+      "summary": "Delete a post",
+      "description": "Delete a post by its unique identifier.",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Unique identifier of the post to delete."
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Post deleted successfully."
+        },
+        "404": {
+          "description": "Post not found."
+        }
+      }
+    }
+  }
+}

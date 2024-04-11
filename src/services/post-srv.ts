@@ -7,6 +7,13 @@ export class PostSrv {
     return post;
   };
 
+  static updatePost = async (postId, updateData) => {
+    const updatedPost = await Post.findByIdAndUpdate(postId, updateData, {
+      new: true,
+    });
+    return updatedPost;
+  };
+
   static getAllPosts = async () => {
     const posts = await Post.find({});
     return posts;

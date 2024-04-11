@@ -2,11 +2,12 @@ import * as express from "express";
 
 import { PostCtrl } from "../controllers";
 
-const postRt = express.Router();
+const router = express.Router();
 
-postRt.post("/posts", PostCtrl.createPost);
-postRt.get("/posts", PostCtrl.getAllPosts);
-postRt.get("/posts/:id", PostCtrl.getPostById);
-postRt.delete("/posts/:id", PostCtrl.deletePost);
+router.post("/posts", PostCtrl.createPost);
+router.patch("/posts/:id", PostCtrl.updatePost);
+router.get("/posts", PostCtrl.getAllPosts);
+router.get("/posts/:id", PostCtrl.getPostById);
+router.delete("/posts/:id", PostCtrl.deletePost);
 
-export { postRt };
+export { router };

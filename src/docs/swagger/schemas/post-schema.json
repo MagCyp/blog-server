@@ -1,0 +1,16 @@
+{
+  "postSchema": {
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "content": {
+        "type": "string"
+      }
+    },
+    "example": {
+      "title": "Title 1",
+      "content": "Content 1"
+    }
+  }
+}
